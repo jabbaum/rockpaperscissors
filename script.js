@@ -13,12 +13,12 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function singleround(pChoice, cChoice) {
+function singleround(pChoice = window.prompt("choose Rock, Paper, or Scissors!"), cChoice = getComputerChoice()) {
     let playerChoice = pChoice.toLowerCase();
     let computerChoice = cChoice.toLowerCase();
     let winnerOutput = `${playerChoice} beats ${computerChoice}!`
     if (playerChoice === computerChoice) {
-        return `Both you and the computer chose ${computerChoice} so, the round is a tie.`
+        return `Both you and the computer chose ${computerChoice} so, the round is a tie. ${singleround()}`
     } else if(playerChoice ==='paper' && computerChoice === 'rock' || playerChoice ==='rock' && computerChoice === 'scissors' || playerChoice ==='scissors' && computerChoice === 'paper') {
         return `You Win! ` + winnerOutput; 
     } else {
