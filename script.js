@@ -16,11 +16,11 @@ function getComputerChoice() {
 function singleround(pChoice, cChoice) {
     let playerChoice = pChoice.toLowerCase();
     let computerChoice = cChoice.toLowerCase();
-    let winnerOutput = ` ${playerChoice} beats ${computerChoice}!`
+    let winnerOutput = `${playerChoice} beats ${computerChoice}!`
     if (playerChoice === computerChoice) {
         return `Both you and the computer chose ${computerChoice} so, the round is a tie.`
     } else if(playerChoice ==='paper' && computerChoice === 'rock' || playerChoice ==='rock' && computerChoice === 'scissors' || playerChoice ==='scissors' && computerChoice === 'paper') {
-        return `You Win!${+ winnerOutput}`; 
+        return `You Win! ` + winnerOutput; 
     } else {
         return `Sorry, you lose because the computer chose ${computerChoice} and that beats ${playerChoice}!`;
     }
