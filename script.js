@@ -2,6 +2,11 @@ let scoreCard = {
     player: 0,
     computer: 0
 };
+
+let output = document.querySelector('.output');
+
+
+
 function getComputerChoice() {
     let num = Math.floor(
         (Math.random()*100)
@@ -17,7 +22,8 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function singleround(pChoice = window.prompt("choose Rock, Paper, or Scissors!"), cChoice = getComputerChoice()) {
+function singleround(pChoice, cChoice = getComputerChoice()) {
+
     const playerChoice = pChoice.toLowerCase();
     const computerChoice = cChoice.toLowerCase();
 
@@ -36,16 +42,26 @@ function singleround(pChoice = window.prompt("choose Rock, Paper, or Scissors!")
     }
 }
 
-function game() {
-    for(let i=0; i<5; i++) {
+function game(pChoice) {
+    if(scoreCard.player>=3) {
+        output.textContent =`The game is over! You Win!`;
+        return
+    } else if (scoreCard.computer>=3) {
+        output.textContent =`The game is over! You Lose! The computer wins!`;
+        return
+    } else {
         singleround();
         if(scoreCard.player>=3) {
-            console.log(`The game is over! You Win!`);
+            output.textContent =`The game is over! You Win!`;
             return
         } else if (scoreCard.computer>=3) {
-            console.log(`The game is over! You Lose! The computer wins!`);
+            output.textContent =`The game is over! You Lose! The computer wins!`;
+            return
+        } else {
+            output.textContent = `The Current Socre is Player: ${scoreCard.player} and Computer: ${scoreCard.computer}. Play Again By Clicking Your Choice!`;
             return
         }
+
     }
 }
 
@@ -57,5 +73,7 @@ function startGame() {
     btn.style.cssText = `display: none`;
     game();
 }
+
+
 
 
