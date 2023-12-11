@@ -1,0 +1,43 @@
+body {
+    background-color: #260071;
+}
+
+.signalHolder {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.signalHolder >img {
+    max-width: 120px;
+}
+
+
+.outputHolder {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.output{
+    border: 2px solid #fe2cf1;
+    color: #fff;
+    text-align: center;
+    font-family: sans-serif;
+    width: 500px;
+}
+
+
+
+
+.buttonHolder {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+button {
+    padding: 15px 25px;
+    align-self: stretch;
+    color: #01dfba;
+    background-color: #01dfba00;
+    border: 2px solid #fe2cf1;
+}

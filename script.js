@@ -38,7 +38,7 @@ function singleround(pChoice = window.prompt("choose Rock, Paper, or Scissors!")
 
 function game() {
     for(let i=0; i<5; i++) {
-        console.log(singleround());
+        singleround();
         if(scoreCard.player>=3) {
             console.log(`The game is over! You Win!`);
             return
@@ -48,3 +48,14 @@ function game() {
         }
     }
 }
+
+
+let btn = document.querySelector('button');
+btn.addEventListener('click', startGame);
+
+function startGame() {
+    btn.style.cssText = `display: none`;
+    game();
+}
+
+
