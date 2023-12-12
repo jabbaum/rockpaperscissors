@@ -29,7 +29,7 @@ function singleround(pChoice, cChoice = getComputerChoice()) {
 
     let winnerOutput = `${playerChoice} beats ${computerChoice}!`
     if (playerChoice === computerChoice) {
-        console.log(`The current score is: Player: ${scoreCard.player} Computer: ${scoreCard.computer}`);
+        
         return `Both you and the computer chose ${computerChoice} so, the round is a tie. ${singleround()}`
     } else if(playerChoice ==='paper' && computerChoice === 'rock' || playerChoice ==='rock' && computerChoice === 'scissors' || playerChoice ==='scissors' && computerChoice === 'paper') {
         scoreCard.player = scoreCard.player +1;
@@ -42,7 +42,19 @@ function singleround(pChoice, cChoice = getComputerChoice()) {
     }
 }
 
-function game(pChoice) {
+function game(pChoice, singleround) {
+    let roundWinner = singleround(pChoice);
+    if (roundWinner === 'Player') {
+        scoreCard.player += 1;
+    } else if (roundWinner === 'Computer') {
+        scoreCard.computer +=1;
+    } else if (roundWinner === 'Tie') {
+
+    } else {
+        output.textContent = 'There was an Error!'
+        return
+    }
+
     if(scoreCard.player>=3) {
         output.textContent =`The game is over! You Win!`;
         return
