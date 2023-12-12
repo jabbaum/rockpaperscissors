@@ -59,19 +59,17 @@ function game(pChoice, singleround) {
     } else if (scoreCard.computer>=3) {
         output.textContent =`The game is over! You Lose! The computer wins!`;
         return
+    } else if(scoreCard.player>=3) {
+        output.textContent =`The game is over! You Win!`;
+        return
+    } else if (scoreCard.computer>=3) {
+        output.textContent =`The game is over! You Lose! The computer wins!`;
+        return
+    } else if (roundWinner === 'Tie'){
+        output.textContent = `The last round was a tie! The Current Socre is Player: ${scoreCard.player} and Computer: ${scoreCard.computer}. Play Again By Clicking Your Choice!`;
     } else {
-        singleround();
-        if(scoreCard.player>=3) {
-            output.textContent =`The game is over! You Win!`;
-            return
-        } else if (scoreCard.computer>=3) {
-            output.textContent =`The game is over! You Lose! The computer wins!`;
-            return
-        } else {
-            output.textContent = `The Current Socre is Player: ${scoreCard.player} and Computer: ${scoreCard.computer}. Play Again By Clicking Your Choice!`;
-            return
-        }
-
+        output.textContent = `The Current Socre is Player: ${scoreCard.player} and Computer: ${scoreCard.computer}. Play Again By Clicking Your Choice!`;
+        return
     }
 }
 
