@@ -48,9 +48,7 @@ function game(pChoice, singleround) {
         scoreCard.player += 1;
     } else if (roundWinner === 'Computer') {
         scoreCard.computer +=1;
-    } else if (roundWinner === 'Tie') {
-
-    } else {
+    } else if (roundWinner != 'Tie') {
         output.textContent = 'There was an Error!'
         return
     }
