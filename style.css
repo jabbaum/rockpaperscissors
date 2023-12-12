@@ -27,17 +27,3 @@ body {
 }
 
 
-
-
-.buttonHolder {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-button {
-    padding: 15px 25px;
-    align-self: stretch;
-    color: #01dfba;
-    background-color: #01dfba00;
-    border: 2px solid #fe2cf1;
-}

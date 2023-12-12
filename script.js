@@ -69,14 +69,5 @@ function game(pChoice, singleround) {
 }
 
 
-let btn = document.querySelector('button');
-btn.addEventListener('click', startGame);
-
-function startGame() {
-    btn.style.cssText = `display: none`;
-    game();
-}
-
-
 
 
