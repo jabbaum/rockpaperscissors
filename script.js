@@ -7,6 +7,7 @@ let output = document.querySelector('.output');
 let rock = document.querySelector('#rock');
 let paper = document.querySelector('#paper');
 let scissors = document.querySelector('#scissors');
+console.log(rock);
 
 
 
@@ -40,8 +41,8 @@ function singleround(pChoice, cChoice = getComputerChoice()) {
     }
 }
 
-function game(pChoice, singleround) {
-    let roundWinner = singleround(pChoice);
+function game(e) {
+    let roundWinner = singleround(e.currentTarget.choice);
     if (roundWinner === 'Player') {
         scoreCard.player += 1;
     } else if (roundWinner === 'Computer') {
@@ -52,16 +53,14 @@ function game(pChoice, singleround) {
     }
 
     if(scoreCard.player>=3) {
-        output.textContent =`The game is over! You Win!`;
+        output.textContent =`The game is over! You Win! The final Score was Player ${scoreCard.player} and Computer: ${scoreCard.computer}. If you would like to play again, select your hand signal choice!`;
+        scoreCard.player = 0;
+        scoreCard.computer = 0;
         return
     } else if (scoreCard.computer>=3) {
-        output.textContent =`The game is over! You Lose! The computer wins!`;
-        return
-    } else if(scoreCard.player>=3) {
-        output.textContent =`The game is over! You Win!`;
-        return
-    } else if (scoreCard.computer>=3) {
-        output.textContent =`The game is over! You Lose! The computer wins!`;
+        output.textContent =`The game is over! You Lose! The computer wins! The final Score was Player ${scoreCard.player} and Computer: ${scoreCard.computer} If you would like to play again, select your hand signal choice!`;
+        scoreCard.player = 0;
+        scoreCard.computer = 0;
         return
     } else if (roundWinner === 'Tie'){
         output.textContent = `The last round was a tie! The Current Socre is Player: ${scoreCard.player} and Computer: ${scoreCard.computer}. Play Again By Clicking Your Choice!`;
@@ -72,7 +71,10 @@ function game(pChoice, singleround) {
 }
 
 
-rock.addEventListener('click', game('rock', singleround));
-paper.addEventListener('click', game('paper', singleround));
-scissors.addEventListener('click', game('scissors', singleround));
+rock.addEventListener('click', game,false);
+rock.choice = 'rock';
+paper.addEventListener('click', game);
+paper.choice = 'paper';
+scissors.addEventListener('click', game);
+scissors.choice = 'scissors';
 
