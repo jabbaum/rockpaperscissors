@@ -4,6 +4,9 @@ let scoreCard = {
 };
 
 let output = document.querySelector('.output');
+let rock = document.querySelector('#rock');
+let paper = document.querySelector('#paper');
+let scissors = document.querySelector('#scissors');
 
 
 
@@ -69,5 +72,7 @@ function game(pChoice, singleround) {
 }
 
 
-
+rock.addEventListener('click', game('rock', singleround));
+paper.addEventListener('click', game('paper', singleround));
+scissors.addEventListener('click', game('scissors', singleround));
 
